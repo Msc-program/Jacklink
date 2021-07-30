@@ -45,6 +45,7 @@
 #include "Settings.h"
 #include "UdpHubListener.h"
 #include <QLoggingCategory>
+#include "JackLink.h"
 
 void qtMessageHandler(__attribute__((unused)) QtMsgType type, __attribute__((unused)) const QMessageLogContext &context, const QString &msg)
 {
@@ -93,10 +94,11 @@ BOOL WINAPI windowsCtrlHandler(DWORD fdwCtrlType)
 
 int main(int argc, char *argv[])
 {
+    JackLink jacklink;
+    jacklink.show();
     QCoreApplication app(argc, argv);
     QScopedPointer<JackTrip> jackTrip;
     QScopedPointer<UdpHubListener> udpHub;
-    
     QLoggingCategory::setFilterRules(QStringLiteral("*.debug=true"));
     qInstallMessageHandler(qtMessageHandler);
 

@@ -13,7 +13,7 @@ CONFIG(debug, debug|release) {
   }
 
 QT -= gui
-QT += network
+QT += network widgets
 
 # rc.1.2 switch enables experimental wair build, merge some of it with WAIRTOHUB
 # DEFINES += WAIR
@@ -152,7 +152,8 @@ HEADERS += DataProtocol.h \
            AudioInterface.h \
            compressordsp.h \
            limiterdsp.h \
-           freeverbdsp.h
+           freeverbdsp.h \
+           JackLink.h\
 
 !nojack {
 HEADERS += JackAudioInterface.h
@@ -177,7 +178,8 @@ SOURCES += DataProtocol.cpp \
            Settings.cpp \
            UdpDataProtocol.cpp \
            UdpHubListener.cpp \
-           AudioInterface.cpp
+           AudioInterface.cpp \
+           JackLink.cpp
 
 !nojack {
 SOURCES += JackAudioInterface.cpp
