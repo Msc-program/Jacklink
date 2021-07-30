@@ -73,8 +73,9 @@ JackLink::JackLink(QWidget *parent)
 //    udpSocket = new QUdpSocket(this);
 ////! [0]
 
-//    connect(startButton, &QPushButton::clicked, this, &Sender::startBroadcasting);
-//    connect(quitButton, &QPushButton::clicked, this, &Sender::close);
+    connect(serverButton, &QPushButton::clicked, this, &JackLink::serverSlot);
+    connect(clientButton, &QPushButton::clicked, this, &JackLink::clientSlot);
+    connect(quitButton, &QPushButton::clicked, this, &JackLink::close);
 //    connect(&timer, &QTimer::timeout, this, &Sender::broadcastDatagram);
 
 //    auto mainLayout = new QVBoxLayout;
@@ -82,21 +83,22 @@ JackLink::JackLink(QWidget *parent)
 //    mainLayout->addWidget(buttonBox);
 //    setLayout(mainLayout);
 
-//    setWindowTitle(tr("Broadcast Sender"));
-//}
+    setWindowTitle(tr("*JackLink*"));
+}
 
-//void Sender::startBroadcasting()
-//{
-//    startButton->setEnabled(false);
-//    timer.start(1000);
-//}
+void JackLink::serverSlot()
+{
+    clientButton->setEnabled(false);
+    //timer.start(1000);
+}
 
-//void Sender::broadcastDatagram()
-//{
+void JackLink::clientSlot()
+{
 //    statusLabel->setText(tr("Now broadcasting datagram %1").arg(messageNo));
 ////! [1]
 //    QByteArray datagram = "Broadcast message " + QByteArray::number(messageNo);
 //    udpSocket->writeDatagram(datagram, QHostAddress::Broadcast, 45454);
 ////! [1]
 //    ++messageNo;
+    serverButton->setEnabled(false);
 }
