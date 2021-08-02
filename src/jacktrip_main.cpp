@@ -38,6 +38,7 @@
 #include <iostream>
 
 #include <QCoreApplication>
+#include <QApplication>
 #include <QScopedPointer>
 #include <iostream>
 #include <signal.h>
@@ -94,11 +95,13 @@ BOOL WINAPI windowsCtrlHandler(DWORD fdwCtrlType)
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication app(argc, argv);
-    QScopedPointer<JackTrip> jackTrip;
-    QScopedPointer<UdpHubListener> udpHub;
+    //QCoreApplication app(argc, argv);
+    QApplication app(argc, argv);
     JackLink jackLink;
     jackLink.show();
+    QScopedPointer<JackTrip> jackTrip;
+    QScopedPointer<UdpHubListener> udpHub;
+
 
     QLoggingCategory::setFilterRules(QStringLiteral("*.debug=true"));
     qInstallMessageHandler(qtMessageHandler);
@@ -137,7 +140,7 @@ int main(int argc, char *argv[])
 #ifdef WAIRTOHUB // WAIR
             jackTrip->startProcess(0); // for WAIR compatibility, ID in jack client name
 #else
-            jackTrip->startProcess();
+            //jackTrip->startProcess();
 #endif // endwhere
         }
         

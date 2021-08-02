@@ -77,6 +77,8 @@ public:
     bool getLoopBack() { return mLoopBack; }
     bool isHubServer() { return mJackTripServer; }
 
+    void setJackTripMode(JackTrip::jacktripModeT m) { mJackTripMode = m; }
+
 private:
     JackTrip::jacktripModeT mJackTripMode; ///< JackTrip::jacktripModeT
     JackTrip::dataProtocolT mDataProtocol; ///< Data Protocol

@@ -49,10 +49,11 @@
 ****************************************************************************/
 
 #include <QtWidgets>
-#include <QtNetwork>
+//#include <QtNetwork>
 #include <QtCore>
 
 #include "JackLink.h"
+#include "Settings.h"
 
 JackLink::JackLink(QWidget *parent)
     : QWidget(parent)
@@ -62,41 +63,46 @@ JackLink::JackLink(QWidget *parent)
 
     serverButton = new QPushButton(tr("server"));
     clientButton = new QPushButton(tr("client"));
-    auto quitButton = new QPushButton(tr("&Quit"));
 
     auto buttonBox = new QDialogButtonBox;
     buttonBox->addButton(serverButton, QDialogButtonBox::ActionRole);
     buttonBox->addButton(clientButton, QDialogButtonBox::ActionRole);
-    buttonBox->addButton(quitButton, QDialogButtonBox::RejectRole);
 
 ////! [0]
 //    udpSocket = new QUdpSocket(this);
 ////! [0]
 
-//    connect(startButton, &QPushButton::clicked, this, &Sender::startBroadcasting);
-//    connect(quitButton, &QPushButton::clicked, this, &Sender::close);
-//    connect(&timer, &QTimer::timeout, this, &Sender::broadcastDatagram);
+    connect(serverButton, &QPushButton::clicked, this, &JackLink::serverSlot);
+    connect(clientButton, &QPushButton::clicked, this, &JackLink::clientSlot);
 
-//    auto mainLayout = new QVBoxLayout;
-//    mainLayout->addWidget(statusLabel);
-//    mainLayout->addWidget(buttonBox);
-//    setLayout(mainLayout);
+    auto mainLayout = new QVBoxLayout;
+    mainLayout->addWidget(startlabel);
+    mainLayout->addWidget(serverButton);
+    mainLayout->addWidget(clientButton);
+    setLayout(mainLayout);
 
-//    setWindowTitle(tr("Broadcast Sender"));
-//}
+    setWindowTitle(tr("*JackLink*"));
+}
 
-//void Sender::startBroadcasting()
-//{
-//    startButton->setEnabled(false);
-//    timer.start(1000);
-//}
+void JackLink::serverSlot()
+{
+    clientButton->setEnabled(false);
+    Settings settings;
+    settings.setJackTripMode(JackTrip::SERVER);
+    //timer.start(1000);
+}
 
-//void Sender::broadcastDatagram()
-//{
+void JackLink::clientSlot()
+{
 //    statusLabel->setText(tr("Now broadcasting datagram %1").arg(messageNo));
 ////! [1]
 //    QByteArray datagram = "Broadcast message " + QByteArray::number(messageNo);
 //    udpSocket->writeDatagram(datagram, QHostAddress::Broadcast, 45454);
 ////! [1]
 //    ++messageNo;
+    serverButton->setEnabled(false);
+    Settings settings;
+    settings.setJackTripMode(JackTrip::CLIENT);
 }
+
+

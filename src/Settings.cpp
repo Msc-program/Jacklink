@@ -114,10 +114,10 @@ void Settings::parseInput(int argc, char** argv)
     // Always use decimal point for floating point numbers
     setlocale( LC_NUMERIC, "C" );
     // If no command arguments are given, print instructions
-    if(argc == 1) {
-        printUsage();
-        std::exit(0);
-    }
+//    if(argc == 1) {
+//        printUsage();
+//        std::exit(0);
+//    }
 
     // Usage example at:
     // http://www.gnu.org/software/libc/manual/html_node/Getopt-Long-Option-Example.html#Getopt-Long-Option-Example
@@ -172,6 +172,7 @@ void Settings::parseInput(int argc, char** argv)
         { "examine-audio-delay", required_argument, NULL, 'x' }, // test mode - measure audio round-trip latency statistics
         { NULL, 0, NULL, 0 }
     };
+    if(argc >= 1) {
 
     // Parse Command Line Arguments
     //----------------------------------------------------------------------------
@@ -494,7 +495,7 @@ void Settings::parseInput(int argc, char** argv)
             std::exit(1);
             break; }
         }
-
+    }
     // Warn user if undefined options where entered
     //----------------------------------------------------------------------------
     if (optind < argc) {

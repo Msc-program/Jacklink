@@ -1,6 +1,7 @@
-#include <QWidget>
 #ifndef JACKLINK_H
 #define JACKLINK_H
+
+#include <QWidget>
 
 QT_BEGIN_NAMESPACE
 class QLabel;
@@ -10,7 +11,7 @@ QT_END_NAMESPACE
 
 class JackLink: public QWidget
 {
-    Q_OBJECT;
+    Q_OBJECT
 
 public:
     explicit JackLink(QWidget *parent = nullptr);
