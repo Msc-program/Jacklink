@@ -2,7 +2,7 @@
 # Created by Juan-Pablo Caceres
 #******************************
 
-CONFIG += c++11 console
+CONFIG += c++11
 CONFIG -= app_bundle
 
 CONFIG += qt thread debug_and_release build_all
