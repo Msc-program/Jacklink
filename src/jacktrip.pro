@@ -13,7 +13,11 @@ CONFIG(debug, debug|release) {
   }
 
 QT -= gui
+<<<<<<< HEAD
+QT += network
+=======
 QT += network widgets
+>>>>>>> 3aae7f2f1be3e437c5d94c31d7c8bfe5d2d45ff7
 
 # rc.1.2 switch enables experimental wair build, merge some of it with WAIRTOHUB
 # DEFINES += WAIR
@@ -125,6 +129,10 @@ INCLUDEPATH += ../faust-src-lair
 # Input
 HEADERS += DataProtocol.h \
            JMess.h \
+<<<<<<< HEAD
+=======
+           JackLink.h \
+>>>>>>> 3aae7f2f1be3e437c5d94c31d7c8bfe5d2d45ff7
            JackTrip.h \
            Effects.h \
            Compressor.h \
@@ -152,14 +160,17 @@ HEADERS += DataProtocol.h \
            AudioInterface.h \
            compressordsp.h \
            limiterdsp.h \
-           freeverbdsp.h \
-           JackLink.h\
+           freeverbdsp.h
 
 !nojack {
 HEADERS += JackAudioInterface.h
 }
 SOURCES += DataProtocol.cpp \
            JMess.cpp \
+<<<<<<< HEAD
+=======
+           JackLink.cpp \
+>>>>>>> 3aae7f2f1be3e437c5d94c31d7c8bfe5d2d45ff7
            JackTrip.cpp \
            Compressor.cpp \
            Limiter.cpp \
@@ -178,8 +189,7 @@ SOURCES += DataProtocol.cpp \
            Settings.cpp \
            UdpDataProtocol.cpp \
            UdpHubListener.cpp \
-           AudioInterface.cpp \
-           JackLink.cpp
+           AudioInterface.cpp
 
 !nojack {
 SOURCES += JackAudioInterface.cpp
@@ -196,6 +206,9 @@ DEPENDPATH += ../externals/rtaudio-4.1.1/
 HEADERS +=
 SOURCES +=
 }
+<<<<<<< HEAD
 
 FORMS += \
     form.ui
+=======
+>>>>>>> 3aae7f2f1be3e437c5d94c31d7c8bfe5d2d45ff7
