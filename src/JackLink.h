@@ -3,6 +3,9 @@
 
 #include <QWidget>
 
+#include <JackLinkServer.h>
+#include <JackLinClient.h>
+
 QT_BEGIN_NAMESPACE
 class QLabel;
 class QPushButton;

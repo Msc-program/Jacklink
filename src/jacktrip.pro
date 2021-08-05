@@ -125,7 +125,9 @@ INCLUDEPATH += ../faust-src-lair
 # Input
 HEADERS += DataProtocol.h \
            JMess.h \
+           JackLinClient.h \
            JackLink.h \
+           JackLinkServer.h \
            JackTrip.h \
            Effects.h \
            Compressor.h \
@@ -160,7 +162,9 @@ HEADERS += JackAudioInterface.h
 }
 SOURCES += DataProtocol.cpp \
            JMess.cpp \
+           JackLinClient.cpp \
            JackLink.cpp \
+           JackLinkServer.cpp \
            JackTrip.cpp \
            Compressor.cpp \
            Limiter.cpp \
@@ -196,3 +200,7 @@ DEPENDPATH += ../externals/rtaudio-4.1.1/
 HEADERS +=
 SOURCES +=
 }
+
+FORMS += \
+    JackLinClient.ui \
+    JackLinkServer.ui
