@@ -86,9 +86,11 @@ JackLink::JackLink(QWidget *parent)
 
 void JackLink::serverSlot()
 {
-    clientButton->setEnabled(false);
+    this->close();
     Settings settings;
     settings.setJackTripMode(JackTrip::SERVER);
+    JackLinkServer *ser = new JackLinkServer();
+    ser->show();
     //timer.start(1000);
 }
 
@@ -100,9 +102,12 @@ void JackLink::clientSlot()
 //    udpSocket->writeDatagram(datagram, QHostAddress::Broadcast, 45454);
 ////! [1]
 //    ++messageNo;
-    serverButton->setEnabled(false);
+    //serverButton->setEnabled(false);
+    this->close();
     Settings settings;
     settings.setJackTripMode(JackTrip::CLIENT);
+    JackLinkClient *client = new JackLinkClient();
+    client->show();
 }
 
 
