@@ -76,6 +76,7 @@ JackLink::JackLink(QWidget *parent)
     connect(clientButton, &QPushButton::clicked, this, &JackLink::clientSlot);
 
     auto mainLayout = new QVBoxLayout;
+	mainLayout->addWidget(buttonBox);
     mainLayout->addWidget(startlabel);
     mainLayout->addWidget(serverButton);
     mainLayout->addWidget(clientButton);

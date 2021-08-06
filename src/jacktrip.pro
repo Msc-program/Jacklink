@@ -2,7 +2,7 @@
 # Created by Juan-Pablo Caceres
 #******************************
 
-CONFIG += c++11 console
+CONFIG += c++11
 CONFIG -= app_bundle
 
 CONFIG += qt thread debug_and_release build_all
@@ -13,11 +13,7 @@ CONFIG(debug, debug|release) {
   }
 
 QT -= gui
-<<<<<<< HEAD
-QT += network
-=======
 QT += network widgets
->>>>>>> 3aae7f2f1be3e437c5d94c31d7c8bfe5d2d45ff7
 
 # rc.1.2 switch enables experimental wair build, merge some of it with WAIRTOHUB
 # DEFINES += WAIR
@@ -129,10 +125,9 @@ INCLUDEPATH += ../faust-src-lair
 # Input
 HEADERS += DataProtocol.h \
            JMess.h \
-<<<<<<< HEAD
-=======
+           JackLinClient.h \
            JackLink.h \
->>>>>>> 3aae7f2f1be3e437c5d94c31d7c8bfe5d2d45ff7
+           JackLinkServer.h \
            JackTrip.h \
            Effects.h \
            Compressor.h \
@@ -167,10 +162,9 @@ HEADERS += JackAudioInterface.h
 }
 SOURCES += DataProtocol.cpp \
            JMess.cpp \
-<<<<<<< HEAD
-=======
+           JackLinClient.cpp \
            JackLink.cpp \
->>>>>>> 3aae7f2f1be3e437c5d94c31d7c8bfe5d2d45ff7
+           JackLinkServer.cpp \
            JackTrip.cpp \
            Compressor.cpp \
            Limiter.cpp \
@@ -206,9 +200,7 @@ DEPENDPATH += ../externals/rtaudio-4.1.1/
 HEADERS +=
 SOURCES +=
 }
-<<<<<<< HEAD
 
 FORMS += \
-    form.ui
-=======
->>>>>>> 3aae7f2f1be3e437c5d94c31d7c8bfe5d2d45ff7
+    JackLinClient.ui \
+    JackLinkServer.ui
