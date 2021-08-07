@@ -2,7 +2,7 @@
 #define JACKLINK_H
 
 #include <QWidget>
-
+#include "qhostaddress.h"
 #include <JackLinkServer.h>
 #include <JackLinClient.h>
 

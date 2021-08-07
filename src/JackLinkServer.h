@@ -2,6 +2,7 @@
 #define JACKLINKSERVER_H
 
 #include <QWidget>
+#include <QHostAddress>
 
 #include "JackLink.h"
 
@@ -22,6 +23,7 @@ private slots:
 
 private:
     Ui::JackLinkServer *ui;
+    QList<QHostAddress> availableAddresses;
 };
 
 #endif // JACKLINKSERVER_H
