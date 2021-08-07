@@ -1,5 +1,7 @@
 #include "JackLinClient.h"
 #include "ui_JackLinClient.h"
+#include "JackTrip.h"
+#include "NetKS.h"
 
 JackLinkClient::JackLinkClient(QWidget *parent) :
     QWidget(parent),
