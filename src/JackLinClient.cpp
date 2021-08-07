@@ -19,3 +19,15 @@ void JackLinkClient::on_pushButton_2_clicked()
     this->close();
     jacklink->show();
 }
+
+void JackLinkClient::on_pushButton_clicked()
+{
+    QString seripadd = ui->lineEdit_2->text();
+    int p = ui->lineEdit->text().toInt();
+    JackTrip jacktrip(JackTrip::CLIENTTOPINGSERVER);
+    jacktrip.setAllPorts(p);
+    jacktrip.setPeerAddress(seripadd);
+    NetKS netks;
+    jacktrip.appendProcessPluginFromNetwork(&netks);
+
+}
